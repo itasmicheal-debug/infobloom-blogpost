@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Blog Post Project
 
 This project has been restructured into two separate applications:
@@ -14,3 +15,6 @@ Located in `admin-app/` folder. Provides a form to add new posts and list existi
 Located in `user-app/` folder. Displays blog posts in a card layout.
 
 To run the apps, open the respective `index.html` files in a web browser.
+=======
+# infobloom-blogpost
+>>>>>>> 695fd93528b2725ef95748c5297ed255c23b89f1
