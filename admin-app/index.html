@@ -138,6 +138,7 @@
             <div class="card-body">
                 <form id="postForm" novalidate>
                     <input type="hidden" id="postId">
+                    <input type="hidden" id="postImageData">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="postTitle" placeholder="Enter post title" required>
                         <label for="postTitle">Post Title</label>
@@ -148,6 +149,14 @@
                         <label for="postContent">Post Content</label>
                         <div class="invalid-feedback">Please provide post content.</div>
                         <small id="charCount" class="form-text text-muted">0 / 500 characters</small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="postImageFile" class="form-label">Post Image (optional)</label>
+                        <input type="file" class="form-control" id="postImageFile" accept="image/*">
+                        <div class="form-text">Upload a JPG or PNG to display with this post.</div>
+                        <div class="mt-2" id="imagePreviewWrapper" style="display: none;">
+                            <img id="imagePreview" src="" alt="Selected post image preview" class="img-fluid rounded" style="max-height: 200px; object-fit: cover;">
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary" id="submitBtn"><i class="bi bi-check-circle me-1"></i>Save Post</button>
                     <button type="button" class="btn btn-secondary ms-2" id="cancelBtn" style="display: none;"><i class="bi bi-x-circle me-1"></i>Cancel</button>

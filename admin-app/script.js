@@ -3,6 +3,10 @@ const postForm = document.getElementById('postForm');
 const postId = document.getElementById('postId');
 const postTitle = document.getElementById('postTitle');
 const postContent = document.getElementById('postContent');
+const postImageFile = document.getElementById('postImageFile');
+const postImageData = document.getElementById('postImageData');
+const imagePreview = document.getElementById('imagePreview');
+const imagePreviewWrapper = document.getElementById('imagePreviewWrapper');
 const submitBtn = document.getElementById('submitBtn');
 const cancelBtn = document.getElementById('cancelBtn');
 const formTitle = document.getElementById('formTitle');
@@ -18,6 +22,17 @@ const todayPostsEl = document.getElementById('todayPosts');
 const lastUpdatedEl = document.getElementById('lastUpdated');
 let deleteIndex;
 let allPosts = []; // Store all posts for filtering
+
+function updateImagePreviewFromData(dataUrl) {
+    if (!imagePreview || !imagePreviewWrapper) return;
+    if (dataUrl) {
+        imagePreview.src = dataUrl;
+        imagePreviewWrapper.style.display = 'block';
+    } else {
+        imagePreview.src = '';
+        imagePreviewWrapper.style.display = 'none';
+    }
+}
 
 // Character counter
 function updateCharCount() {
@@ -121,7 +136,8 @@ function savePost(event) {
     const postData = {
         title: postTitle.value,
         content: postContent.value,
-        createdAt: new Date().toISOString()
+        createdAt: new Date().toISOString(),
+        image: postImageData.value || null
     };
 
     const id = postId.value;
@@ -148,6 +164,8 @@ function editPost(index) {
     postId.value = index;
     postTitle.value = post.title;
     postContent.value = post.content;
+    postImageData.value = post.image || '';
+    updateImagePreviewFromData(post.image || '');
     updateCharCount();
     formTitle.textContent = 'Edit Post';
     submitBtn.textContent = 'Update Post';
@@ -178,6 +196,9 @@ function resetForm() {
     postForm.reset();
     postForm.classList.remove('was-validated');
     postId.value = '';
+    if (postImageData) postImageData.value = '';
+    if (postImageFile) postImageFile.value = '';
+    updateImagePreviewFromData('');
     formTitle.textContent = 'Add New Post';
     submitBtn.textContent = 'Save Post';
     cancelBtn.style.display = 'none';
@@ -190,6 +211,23 @@ cancelBtn.addEventListener('click', resetForm);
 postContent.addEventListener('input', updateCharCount);
 themeToggle.addEventListener('click', toggleTheme);
 searchInput.addEventListener('input', filterPosts);
+if (postImageFile) {
+    postImageFile.addEventListener('change', function () {
+        const file = postImageFile.files && postImageFile.files[0];
+        if (!file) {
+            postImageData.value = '';
+            updateImagePreviewFromData('');
+            return;
+        }
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const dataUrl = e.target && e.target.result ? String(e.target.result) : '';
+            postImageData.value = dataUrl;
+            updateImagePreviewFromData(dataUrl);
+        };
+        reader.readAsDataURL(file);
+    });
+}
 
 // Initialize
 const savedTheme = localStorage.getItem('theme') || 'light';
