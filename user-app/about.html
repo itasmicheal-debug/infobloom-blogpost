@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About InfoBloom — where ideas grow.">
+    <title>About — InfoBloom</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom fixed-top" aria-label="Main navigation">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="index.html">InfoBloom</a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarMain">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#categories">Categories</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-offset">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="display-5 fw-normal mb-4 hero-title reveal">About InfoBloom</h1>
+                    <p class="lead text-muted mb-4 reveal">InfoBloom is a blog where ideas grow. We publish short, thoughtful articles on technology, design, and life—written for curious readers who prefer depth over noise.</p>
+                    <div class="content-body reveal">
+                        <p>Our goal is simple: share useful ideas and practices that you can apply in your work and daily life. No fluff, no hype—just clear writing and practical takeaways.</p>
+                        <p>Whether you're a developer, designer, or someone who likes to think about how things work, you'll find something here that resonates.</p>
+                        <p class="mb-0">Thanks for reading. If you’d like to stay in the loop, <a href="index.html">subscribe to our newsletter</a> on the home page.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer border-top py-5 mt-5">
+        <div class="container">
+            <div class="row align-items-start">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <a class="navbar-brand fw-bold text-dark text-decoration-none" href="index.html">InfoBloom</a>
+                    <p class="small text-muted mt-2 mb-0">Ideas that grow.</p>
+                    <address class="small text-muted mt-2 mb-0">
+                        <i class="bi bi-geo-alt me-1"></i> 123 Blog Lane, City, Country
+                    </address>
+                    <div class="social-links mt-3">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="text-muted me-3" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="https://wa.me" target="_blank" rel="noopener noreferrer" class="text-muted me-3" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="text-muted me-3" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="text-muted" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-muted text-decoration-none me-3 small">Privacy</a>
+                    <a href="#" class="text-muted text-decoration-none me-3 small">Terms</a>
+                    <a href="about.html" class="text-muted text-decoration-none small">About</a>
+                </div>
+            </div>
+            <div class="row mt-4 pt-4 border-top">
+                <div class="col-12 text-center text-muted small">
+                    &copy; <span id="copyrightYear">2025</span> InfoBloom. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>document.getElementById('copyrightYear') && (document.getElementById('copyrightYear').textContent = new Date().getFullYear());</script>
+    <script>
+        (function () {
+            var reveals = document.querySelectorAll('.reveal');
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) entry.target.classList.add('in-view');
+                });
+            }, { rootMargin: '0px 0px -40px 0px', threshold: 0.1 });
+            reveals.forEach(function (el) { observer.observe(el); });
+        })();
+    </script>
+</body>
+</html>

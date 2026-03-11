@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article — InfoBloom</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-dark" href="index.html">InfoBloom</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#categories">Categories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content-offset">
+        <article class="container py-4">
+            <a href="index.html" class="back-link reveal">← Back to posts</a>
+            <div class="article-image-wrap reveal mb-4 rounded-3 overflow-hidden" id="postImageWrap" style="display: none;">
+                <img id="postImage" class="article-image w-100" src="" alt="" loading="eager">
+            </div>
+            <header class="article-header reveal">
+                <p class="article-meta text-uppercase letter-spacing" id="postMeta">—</p>
+                <h1 class="article-title" id="postTitle">Loading…</h1>
+                <p class="article-meta" id="postDate">—</p>
+                <div class="article-stats d-flex align-items-center flex-wrap gap-3 mt-3" id="articleStats">
+                    <span class="article-stat small text-muted"><i class="bi bi-eye me-1"></i><span id="postViews">0</span> views</span>
+                    <button type="button" class="btn btn-like-article btn-sm border-0 bg-transparent text-muted p-0 small" id="postLikeBtn" aria-label="Like"><i class="bi bi-heart me-1" id="postLikeIcon"></i><span id="postLikes">0</span> likes</button>
+                    <span class="article-stat small text-muted"><i class="bi bi-chat-dots me-1"></i><span id="postCommentsCount">0</span> comments</span>
+                </div>
+            </header>
+            <div class="article-body reveal" id="postContent">
+                <p>Loading…</p>
+            </div>
+            <section class="comments-section reveal mt-5 pt-4 border-top" id="comments">
+                <h2 class="h5 mb-4"><i class="bi bi-chat-dots me-2"></i>Comments (<span id="commentsHeadingCount">0</span>)</h2>
+                <ul class="list-unstyled mb-4" id="commentsList"></ul>
+                <form id="commentForm" class="comment-form">
+                    <div class="row g-2">
+                        <div class="col-md-4">
+                            <label for="commentAuthor" class="form-label small">Name</label>
+                            <input type="text" class="form-control form-control-sm" id="commentAuthor" placeholder="Your name" required>
+                        </div>
+                        <div class="col-12">
+                            <label for="commentText" class="form-label small">Comment</label>
+                            <textarea class="form-control form-control-sm" id="commentText" rows="3" placeholder="Write a comment…" required></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-dark btn-sm rounded-pill px-3">Post comment</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </article>
+    </main>
+
+    <footer class="footer py-4 border-top reveal">
+        <div class="container">
+            <div class="row align-items-start">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <a class="navbar-brand fw-bold text-dark text-decoration-none" href="index.html">InfoBloom</a>
+                    <p class="small text-muted mt-2 mb-0">Ideas that grow.</p>
+                    <address class="small text-muted mt-2 mb-0">
+                        <i class="bi bi-geo-alt me-1"></i> 123 Blog Lane, City, Country
+                    </address>
+                    <div class="social-links mt-3">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="text-muted me-3" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="https://wa.me" target="_blank" rel="noopener noreferrer" class="text-muted me-3" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="text-muted me-3" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="text-muted" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="index.html" class="text-muted text-decoration-none small">Home</a>
+                </div>
+            </div>
+            <div class="row mt-4 pt-4 border-top">
+                <div class="col-12 text-center text-muted small">
+                    &copy; <span id="copyrightYear">2025</span> InfoBloom. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="post.js"></script>
+    <script>document.getElementById('copyrightYear') && (document.getElementById('copyrightYear').textContent = new Date().getFullYear());</script>
+    <script>
+        (function () {
+            var reveals = document.querySelectorAll('.reveal');
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) entry.target.classList.add('in-view');
+                });
+            }, { rootMargin: '0px 0px -40px 0px', threshold: 0.1 });
+            reveals.forEach(function (el) { observer.observe(el); });
+        })();
+    </script>
+</body>
+</html>
