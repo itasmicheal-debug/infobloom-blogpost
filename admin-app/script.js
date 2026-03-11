@@ -88,6 +88,7 @@ function renderPosts(posts) {
     posts.forEach((post) => {
         const originalIndex = allPosts.indexOf(post);
         const row = document.createElement('tr');
+        row.classList.add('fade-in-up');
         row.innerHTML = `
             <td>${post.title}</td>
             <td><span class="badge bg-secondary">${new Date(post.createdAt).toLocaleDateString()}</span></td>
